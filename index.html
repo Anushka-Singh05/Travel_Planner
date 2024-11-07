@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Planner</h1>
+
+        <form id="travel-form">
+            <label for="source">Source City:</label>
+            <select id="source" name="source">
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Pune">Pune</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <!-- Add more cities as needed -->
+            </select>
+
+            <label for="destination">Destination City:</label>
+            <select id="destination" name="destination">
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Pune">Pune</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <!-- Add more cities as needed -->
+            </select>
+
+            <label for="via">Via (Optional):</label>
+            <input type="text" id="via" name="via" placeholder="e.g. Bhopal, Surat">
+
+            <button type="submit">Find Shortest Path</button>
+        </form>
+
+        <div id="result" class="result">
+            <h2>Result</h2>
+            <p><strong>Shortest Path:</strong> <span id="path"></span></p>
+            <p><strong>Total Distance:</strong> <span id="distance"></span> km</p>
+            <p><strong>Estimated Time:</strong> <span id="time"></span> hours</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Travel Planner App. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Handle form submission
+        document.getElementById('travel-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const source = document.getElementById('source').value;
+            const destination = document.getElementById('destination').value;
+            const via = document.getElementById('via').value;
+
+            const url = `/shortest_path?source=${source}&target=${destination}${via ? '&via=' + via : ''}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        document.getElementById('path').textContent = data.path.join(' → ');
+                        document.getElementById('distance').textContent = data.distance;
+                        document.getElementById('time').textContent = data.time;
+                        document.getElementById('result').classList.add('show');
+                    }
+                })
+                .catch(error => {
+                    alert('Error fetching data');
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Body styling with background gradient */
+body {
+    background: linear-gradient(135deg, #1d2b64, #f8cdda);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Main container styling */
+.container {
+    background-color: white;
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+/* Hover effect on the container */
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Title styling */
+h1 {
+    color: #1d2b64;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Label styling for form inputs */
+label {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Input and select fields styling */
+select, input[type="text"], input[type="number"] {
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Focus effect for inputs and selects */
+select:focus, input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+/* Button styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+}
+
+/* Button active (clicked) effect */
+button:active {
+    transform: translateY(3px);
+}
+
+/* Result section styling */
+#result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    color: #333;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+/* Fade-in effect for results */
+#result.show {
+    display: block;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Keyframes for fading effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    font-size: 1rem;
+    color: #777;
+    margin-top: 40px;
+}
+
+/* Footer hover effect */
+footer a:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    input[type="text"], input[type="number"], select {
+        width: 100%;
+    }
+}
+
+/* Input placeholders */
+input::placeholder {
+    color: #aaa;
+}

@@ -1,161 +1,123 @@
-🚗 Travel Planner – Shortest Path Finder using Dijkstra’s Algorithm
------
-📌 Project Overview
+# 🚗 Travel Planner – Shortest Path Finder
 
-This project is a web-based Travel Planner application built using Flask and NetworkX.
+> ⭐ *"Finding the fastest route, one city at a time."*
 
-The system calculates the shortest path between Indian cities using Dijkstra’s Algorithm.
+---
 
-Cities are represented as graph nodes and travel time (in hours) is used as weighted edges.
+## 📌 Project Overview
 
-The application also estimates travel distance assuming an average speed of 60 km/h.
-----
-📊 Graph Information
+This is a **web-based Travel Planner application** built using **Flask** and **NetworkX**. The system calculates the shortest path between major Indian cities using **Dijkstra’s Algorithm**.
 
-Total Cities: 20
+- **Cities** are represented as graph nodes.
+- **Travel time** (in hours) is used as weighted edges.
+- **Distance** is estimated assuming an average speed of 60 km/h.
 
-Graph Type: Undirected Weighted Graph
+---
 
-Edge Weights: Travel Time (in hours)
+## 📊 Graph Information
 
-Algorithm Used: Dijkstra’s Algorithm
-------
-🗺️ Supported Cities
-
-Delhi, Mumbai, Bangalore, Kolkata, Chennai, Hyderabad, Jaipur, Pune, Ahmedabad, Lucknow, Surat, Indore, Chandigarh, Vadodara, Nagpur, Coimbatore, Patna, Bhopal, Goa, Udaipur
-------
-🔍 System Flow
-✔ User Inputs:
-
-Source City
-
-Destination City
-
-Optional Via Cities
-
-✔ Backend Processing:
-
-Validate input
-
-Apply Dijkstra’s Algorithm
-
-Calculate total travel time
-
-Estimate total distance
-
-Distance is calculated as:
-
-Distance = Time × 60
-
-(Assuming 60 km/h average speed)
------
-⚙️ Features
-
-Shortest path calculation
-
-Multiple via city support
-
-Automatic distance estimation
-
-REST API endpoint
-
-Responsive UI
-
-Real-time result display
-----
-🤖 Algorithm Used
-1️⃣ Dijkstra’s Algorithm
-
-Used to find the shortest path between two nodes in a weighted graph.
-
-Steps:
-
-Initialize distances
-
-Use priority queue
-
-Update shortest distances
-
-Repeat until destination reached
-
-Time Complexity:
-O((V + E) log V)
+| Feature | Details |
+| :--- | :--- |
+| **Total Cities** | 20 |
+| **Graph Type** | Undirected Weighted Graph |
+| **Edge Weights** | Travel Time (hours) |
+| **Algorithm Used** | Dijkstra’s Algorithm |
+| **Time Complexity** | $O((V + E) \log V)$ |
 
 Where:
+- **V** = Number of vertices (cities)
+- **E** = Number of edges (routes)
 
-V = Number of vertices (cities)
+---
 
-E = Number of edges (routes)
+## 🗺️ Supported Cities
 
-🔌 API Endpoint
-GET /shortest_path
-Parameters
+The graph includes the following 20 major Indian hubs:
 
-source (Required)
+> Delhi, Mumbai, Bangalore, Kolkata, Chennai, Hyderabad, Jaipur, Pune, Ahmedabad, Lucknow, Surat, Indore, Chandigarh, Vadodara, Nagpur, Coimbatore, Patna, Bhopal, Goa, Udaipur.
 
-target (Required)
+---
 
-via (Optional – comma separated cities)
+## 🔍 System Flow
 
-Example Request
+### ✔ User Inputs
+1. **Source City:** The starting point of the journey.
+2. **Destination City:** The final stop.
+3. **Optional Via Cities:** Intermediate locations to be visited.
 
-/shortest_path?source=Delhi&target=Mumbai
+### ✔ Backend Processing
+- **Validation:** Ensures the cities exist in the dataset.
+- **Dijkstra’s Algorithm:** Computes the path with the minimum cumulative weight (time).
+- **Calculation:** Derives total distance using the formula:
+  $$\text{Distance} = \text{Time} \times 60$$
 
-Example Response
+---
 
+## ⚙️ Features
+
+- ✅ **Shortest Path Calculation:** Efficiently finds the quickest route.
+- ✅ **Multiple "Via" Support:** Plan trips with multiple stops.
+- ✅ **Automatic Estimation:** Instant time and distance readouts.
+- ✅ **REST API Endpoint:** Backend can be queried via HTTP requests.
+- ✅ **Responsive UI:** Clean, mobile-friendly interface.
+
+---
+
+## 🔌 API Documentation
+
+### `GET /shortest_path`
+
+**Parameters:**
+
+| Parameter | Required | Description |
+| :--- | :--- | :--- |
+| `source` | **Yes** | Starting city name |
+| `target` | **Yes** | Destination city name |
+| `via` | No | Comma-separated list of intermediate cities |
+
+### 📥 Example Request
+`GET /shortest_path?source=Delhi&target=Mumbai`
+
+### 📤 Example Response
+```json
 {
-"path": ["Delhi", "Mumbai"],
-"distance": 960,
-"time": 16
+  "path": ["Delhi", "Jaipur", "Ahmedabad", "Mumbai"],
+  "distance": 840,
+  "time": 14,
+  "status": "success"
 }
------
-🛠️ Technologies Used
-
-Python
-
-Flask
-
-NetworkX
-
-HTML
-
-CSS
-
-JavaScript
 ----
-📁 Project Structure
+## 🛠️ Technologies Used
 
+* **Python**: Core logic and data processing.
+* **Flask**: Lightweight web framework for the API and routing.
+* **NetworkX**: Powerful library for graph theory and algorithm implementation.
+* **HTML/CSS/JS**: Responsive frontend user interface.
+
+---
+
+## 📁 Project Structure
+
+```text
 Travel-Planner/
 │
-├── app.py
-├── templates/index.html
-├── static/styles.css
-└── README.md
+├── app.py              # Flask server & Dijkstra logic
+├── templates/
+│   └── index.html      # Frontend structure (Jinja2)
+├── static/
+│   └── styles.css      # Custom UI styling & layout
+└── README.md           # Project documentation
 ----
-🚀 Future Improvements
+## 🚀 Future Improvements
+🌍 Map Visualization: Integrate Leaflet.js or Mapbox for interactive visual routes.
 
-Add map visualization
+🚦 Real-time Traffic: Add dynamic edge weights based on live traffic API data.
 
-Add traffic-based dynamic weights
+🚆 Multi-modal Transport: Options to toggle between Train, Flight, or Bus routes.
 
-Add transport modes (Train/Flight/Bus)
-
-Deploy on cloud platform
-
-Add unit testing
+🧪 Unit Testing: Implement PyTest to ensure algorithm accuracy across all city pairs.
 ---
-🎯 Conclusion
-
-The project successfully implements graph theory concepts.
-
-Dijkstra’s Algorithm efficiently computes optimal routes.
-
-The system provides estimated time and distance instantly.
-
-The application demonstrates backend + frontend integration.
----
-⭐ "Finding the fastest route, one city at a time."
-Notes:
-You can customize the cities in the dropdown based on the cities you’ve added to the graph in the backend.
+##🎯 Conclusion
+This project successfully bridges abstract graph theory with a real-world utility. By leveraging Dijkstra’s Algorithm, the application provides optimal routes and logistical estimates instantly. It serves as a robust example of seamless integration between a Python logic-heavy backend and a modern, user-centric frontend.
 If you encounter issues with the OpenRouteService API, ensure that your API key is correctly set in the .env file.
 If you plan to deploy the app, consider setting it up on platforms like Heroku, AWS, or PythonAnywhere.

@@ -105,12 +105,12 @@ HTML / CSS / JavaScript – Responsive frontend user interface
 ##📁 Project Structure
 Travel-Planner/
 │
-├── app.py              # Flask server & Dijkstra logic
-├── templates/
-│   └── index.html      # Frontend structure (Jinja2)
-├── static/
-│   └── styles.css      # Custom UI styling & layout
-└── README.md           # Project documentation
+├── app.py              # Flask server & Dijkstra logic :---
+├── templates/  :---
+│   └── index.html      # Frontend structure (Jinja2)  :---
+├── static/ :---
+│   └── styles.css      # Custom UI styling & layout :---
+└── README.md           # Project documentation  :---
 ---
 ##🚀 Future Improvements
 🌍 Map Visualization: Integrate Leaflet.js or Mapbox for visual routes.

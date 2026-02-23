@@ -104,13 +104,13 @@ HTML / CSS / JavaScript – Responsive frontend user interface
 ---
 ##📁 Project Structure
 Travel-Planner/
--│
--├── app.py              # Flask server & Dijkstra logic 
--├── templates/  
--│   └── index.html      # Frontend structure (Jinja2)  
--├── static/ 
--│   └── styles.css      # Custom UI styling & layout 
--└── README.md           # Project documentation  
+- │
+- ├── app.py              # Flask server & Dijkstra logic 
+- ├── templates/  
+- │   └── index.html      # Frontend structure (Jinja2)  
+- ├── static/ 
+- │   └── styles.css      # Custom UI styling & layout 
+- └── README.md           # Project documentation  
 ---
 ##🚀 Future Improvements
 - 🌍 Map Visualization: Integrate Leaflet.js or Mapbox for visual routes.
@@ -122,13 +122,13 @@ Travel-Planner/
 🧪 Unit Testing: Implement PyTest for algorithm validation.
 ---
 ##🚀 Future Improvements
-🌍 Map Visualization: Integrate Leaflet.js or Mapbox for visual routes.
+- 🌍 Map Visualization: Integrate Leaflet.js or Mapbox for visual routes.
 
-🚦 Real-time Traffic: Add dynamic edge weights based on live API data.
+- 🚦 Real-time Traffic: Add dynamic edge weights based on live API data.
 
-🚆 Multi-modal Transport: Options for Train, Flight, or Bus routes.
+- 🚆 Multi-modal Transport: Options for Train, Flight, or Bus routes.
 
-🧪 Unit Testing: Implement PyTest for algorithm validation
+- 🧪 Unit Testing: Implement PyTest for algorithm validation
 ---
 ##🎯 Conclusion
 This project successfully implements graph theory concepts in a real-world scenario. By leveraging Dijkstra’s Algorithm, the application provides optimal routes and estimated logistics instantly, demonstrating a seamless integration between Python backend logic and a modern web frontend.

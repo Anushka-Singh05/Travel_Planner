@@ -1,103 +1,160 @@
-Travel Planner App
-Overview
-The Travel Planner App is a web application that helps users find the shortest path between two cities in India, along with the travel distance (in kilometers) and estimated travel time. The app uses a Flask backend with NetworkX to calculate the shortest path and OpenRouteService for route calculations. The frontend is built using HTML and CSS, providing an intuitive user interface.
+🚗 Travel Planner – Shortest Path Finder using Dijkstra’s Algorithm
+-----
+📌 Project Overview
 
-Features
-Shortest Path Calculation: The app calculates the shortest path between any two cities in India.
-Distance and Time Estimation: The total distance (in kilometers) and estimated time (in hours) are displayed.
-Via Option: Users can optionally add a "via" location to pass through during their journey.
-Responsive UI: The app's UI is responsive, providing a smooth experience on both desktop and mobile devices.
-Interactive Design: With advanced CSS and interactive JavaScript features, users get an intuitive experience.
-Technologies Used
-Backend:
+This project is a web-based Travel Planner application built using Flask and NetworkX.
+
+The system calculates the shortest path between Indian cities using Dijkstra’s Algorithm.
+
+Cities are represented as graph nodes and travel time (in hours) is used as weighted edges.
+
+The application also estimates travel distance assuming an average speed of 60 km/h.
+----
+📊 Graph Information
+
+Total Cities: 20
+
+Graph Type: Undirected Weighted Graph
+
+Edge Weights: Travel Time (in hours)
+
+Algorithm Used: Dijkstra’s Algorithm
+------
+🗺️ Supported Cities
+
+Delhi, Mumbai, Bangalore, Kolkata, Chennai, Hyderabad, Jaipur, Pune, Ahmedabad, Lucknow, Surat, Indore, Chandigarh, Vadodara, Nagpur, Coimbatore, Patna, Bhopal, Goa, Udaipur
+------
+🔍 System Flow
+✔ User Inputs:
+
+Source City
+
+Destination City
+
+Optional Via Cities
+
+✔ Backend Processing:
+
+Validate input
+
+Apply Dijkstra’s Algorithm
+
+Calculate total travel time
+
+Estimate total distance
+
+Distance is calculated as:
+
+Distance = Time × 60
+
+(Assuming 60 km/h average speed)
+-----
+⚙️ Features
+
+Shortest path calculation
+
+Multiple via city support
+
+Automatic distance estimation
+
+REST API endpoint
+
+Responsive UI
+
+Real-time result display
+----
+🤖 Algorithm Used
+1️⃣ Dijkstra’s Algorithm
+
+Used to find the shortest path between two nodes in a weighted graph.
+
+Steps:
+
+Initialize distances
+
+Use priority queue
+
+Update shortest distances
+
+Repeat until destination reached
+
+Time Complexity:
+O((V + E) log V)
+
+Where:
+
+V = Number of vertices (cities)
+
+E = Number of edges (routes)
+
+🔌 API Endpoint
+GET /shortest_path
+Parameters
+
+source (Required)
+
+target (Required)
+
+via (Optional – comma separated cities)
+
+Example Request
+
+/shortest_path?source=Delhi&target=Mumbai
+
+Example Response
+
+{
+"path": ["Delhi", "Mumbai"],
+"distance": 960,
+"time": 16
+}
+-----
+🛠️ Technologies Used
 
 Python
+
 Flask
-NetworkX (for graph-based shortest path calculations)
-OpenRouteService API (for routing and distance calculation)
-Frontend:
 
-HTML5
-CSS3 (with advanced features)
-JavaScript (for AJAX requests)
-Installation
-Follow the steps below to set up the app on your local machine.
+NetworkX
 
-Prerequisites
-Python 3.x (Install from python.org)
-pip (Python package installer)
-Anaconda (Optional, for managing environments)
-Step 1: Clone the Repository
-Clone the repository to your local machine:
+HTML
 
-bash
-Copy code
-git clone https://github.com/your-username/travel-planner-app.git
-cd travel-planner-app
-Step 2: Install Required Python Packages
-It's recommended to use a virtual environment. If you are using Anaconda, you can create a new environment as follows:
-conda create --name travel-planner python=3.8
-conda activate travel-planner
-Then, install the required Python packages:
+CSS
 
-pip install -r requirements.txt
-Alternatively, install the necessary packages manually using pip:
+JavaScript
+----
+📁 Project Structure
 
-
-pip install Flask networkx openrouteservice
-Step 3: Create a .env File for Configuration (Optional)
-In case you are using OpenRouteService API, create a .env file to store your API key:
-
-makefile
-OPENROUTESERVICE_API_KEY=your_api_key_here
-Make sure to replace your_api_key_here with your actual API key from OpenRouteService.
-
-Step 4: Run the Flask Server
-To start the Flask backend, run the following command:
-
-python app.py
-By default, the app will be accessible at http://127.0.0.1:5000.
-
-Step 5: Access the Web App
-Open a web browser and go to:
-http://127.0.0.1:5000
-You should see the Travel Planner App homepage.
-
-Usage
-Select a source and destination city from the dropdown menus.
-Optionally, enter a via city (a city you want to pass through).
-Click the "Find Shortest Path" button.
-The app will display the shortest path, distance in km, and estimated time for the journey.
-Example
-Source City: Delhi
-Destination City: Mumbai
-Via City (Optional): Jaipur
-The app will calculate the shortest path, distance, and time.
-
-Folder Structure
-travel-planner-app/
+Travel-Planner/
 │
-├── app.py                 # Flask backend
-├── requirements.txt       # List of required Python packages
-├── static/                # Static folder for CSS and JavaScript files
-│   └── style.css          # Custom CSS file
-├── templates/             # Folder containing HTML templates
-│   └── index.html         # HTML template for the travel planner
-├── .env                   # (Optional) OpenRouteService API key configuration
-└── README.md              # Documentation for the app
-Contributing
-Fork the repository.
-Create a new branch (git checkout -b feature-name).
-Make your changes and commit (git commit -am 'Add new feature').
-Push to the branch (git push origin feature-name).
-Create a pull request.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+├── app.py
+├── templates/index.html
+├── static/styles.css
+└── README.md
+----
+🚀 Future Improvements
 
-Acknowledgements
-The app uses OpenRouteService for calculating the shortest path and travel distances.
-Flask for serving the backend.
-NetworkX for graph-based algorithms.
+Add map visualization
+
+Add traffic-based dynamic weights
+
+Add transport modes (Train/Flight/Bus)
+
+Deploy on cloud platform
+
+Add unit testing
+---
+🎯 Conclusion
+
+The project successfully implements graph theory concepts.
+
+Dijkstra’s Algorithm efficiently computes optimal routes.
+
+The system provides estimated time and distance instantly.
+
+The application demonstrates backend + frontend integration.
+---
+⭐ "Finding the fastest route, one city at a time."
 Notes:
 You can customize the cities in the dropdown based on the cities you’ve added to the graph in the backend.
 If you encounter issues with the OpenRouteService API, ensure that your API key is correctly set in the .env file.

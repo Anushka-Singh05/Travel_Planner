@@ -75,30 +75,34 @@ The graph includes the following 20 major Indian hubs:
 | `target` | **Yes** | Destination city name |
 | `via` | No | Comma-separated list of intermediate cities |
 
-### 📥 Example Request
+## 📥 Example Request
+
 `GET /shortest_path?source=Delhi&target=Mumbai`
 
-### 📤 Example Response
-```json
+---
+
+## 📤 Example Response
+
+`'json
 {
   "path": ["Delhi", "Jaipur", "Ahmedabad", "Mumbai"],
   "distance": 840,
   "time": 14,
   "status": "success"
-}
-----
-## 🛠️ Technologies Used
-
-* **Python**: Core logic and data processing.
-* **Flask**: Lightweight web framework for the API and routing.
-* **NetworkX**: Powerful library for graph theory and algorithm implementation.
-* **HTML/CSS/JS**: Responsive frontend user interface.
+}``
 
 ---
+##🛠️ Technologies Used
 
-## 📁 Project Structure
+Python – Core logic and data processing
 
-```text
+Flask – Lightweight web framework for API and routing
+
+NetworkX – Graph theory library for implementing Dijkstra’s Algorithm
+
+HTML / CSS / JavaScript – Responsive frontend user interface
+---
+##📁 Project Structure
 Travel-Planner/
 │
 ├── app.py              # Flask server & Dijkstra logic
@@ -107,17 +111,24 @@ Travel-Planner/
 ├── static/
 │   └── styles.css      # Custom UI styling & layout
 └── README.md           # Project documentation
-----
-## 🚀 Future Improvements
-🌍 Map Visualization: Integrate Leaflet.js or Mapbox for interactive visual routes.
+---
+##🚀 Future Improvements
+🌍 Map Visualization: Integrate Leaflet.js or Mapbox for visual routes.
 
-🚦 Real-time Traffic: Add dynamic edge weights based on live traffic API data.
+🚦 Real-time Traffic: Add dynamic edge weights based on live API data.
 
-🚆 Multi-modal Transport: Options to toggle between Train, Flight, or Bus routes.
+🚆 Multi-modal Transport: Options for Train, Flight, or Bus routes.
 
-🧪 Unit Testing: Implement PyTest to ensure algorithm accuracy across all city pairs.
+🧪 Unit Testing: Implement PyTest for algorithm validation.
+---
+##🚀 Future Improvements
+🌍 Map Visualization: Integrate Leaflet.js or Mapbox for visual routes.
+
+🚦 Real-time Traffic: Add dynamic edge weights based on live API data.
+
+🚆 Multi-modal Transport: Options for Train, Flight, or Bus routes.
+
+🧪 Unit Testing: Implement PyTest for algorithm validation
 ---
 ##🎯 Conclusion
-This project successfully bridges abstract graph theory with a real-world utility. By leveraging Dijkstra’s Algorithm, the application provides optimal routes and logistical estimates instantly. It serves as a robust example of seamless integration between a Python logic-heavy backend and a modern, user-centric frontend.
-If you encounter issues with the OpenRouteService API, ensure that your API key is correctly set in the .env file.
-If you plan to deploy the app, consider setting it up on platforms like Heroku, AWS, or PythonAnywhere.
+This project successfully implements graph theory concepts in a real-world scenario. By leveraging Dijkstra’s Algorithm, the application provides optimal routes and estimated logistics instantly, demonstrating a seamless integration between Python backend logic and a modern web frontend.
